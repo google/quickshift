@@ -37,9 +37,12 @@ fit performs the clustering. The final result can be found in QuickshiftPP.membe
   
   X = [np.random.normal(0, 1, 2) for i in range(100)] + [np.random.normal(5, 1, 2) for i in range(100)]
   y = [0] * 100 + [1] * 100
+
+  # Declare a Quickshift++ model with tuning hyperparameters.
   model = QuickshiftPP(k=20, beta=.5)
-  model.fit(a)
-  
+
+  # Compute the clustering.
+  model.fit(X)
   y_hat = model.memberships
 
   from sklearn.metrics.cluster import adjusted_rand_score, adjusted_mutual_info_score
