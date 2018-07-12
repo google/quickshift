@@ -256,7 +256,7 @@ void compute_mutual_knn(int n, int k,
 
             if (!G.component_seen(knn_radii[last_considered].second)) {
                 vector <int> res = G.get_connected_component(knn_radii[last_considered].second);
-                for (int j = 0; j < res.size(); j++) {
+                for (size_t j = 0; j < res.size(); j++) {
                     if (radii[res[j]] <= knn_radii[i].first) {
                         cluster_membership[n_chosen_points] = n_chosen_clusters;
                         m_hat[n_chosen_points++] = res[j];
@@ -334,7 +334,7 @@ void cluster_remaining(
         }
     }
     for (int c = 0; c < n_chosen_clusters; ++c) {
-        for (int i = 0; i < modal_sets[c].size() - 1; ++i) {
+        for (size_t i = 0; i < modal_sets[c].size() - 1; ++i) {
             H.add_edge(modal_sets[c][i], modal_sets[c][i+1]);
         }
     }
